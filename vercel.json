@@ -1,8 +1,21 @@
- {
-  "redirects": [
+{
+  "builds": [
     {
-      "source": "/",
-      "destination": "https://github.com/novatorem/novatorem"
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/",
+      "status": 302,
+      "headers": {
+        "Location": "https://github.com/argottzz/novatorem"
+      }
     }
   ]
 }
